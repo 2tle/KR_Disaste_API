@@ -7,8 +7,7 @@ let disasterKR = {};
 disasterKR.getDisasterMessage = (callback) => {
     var uri = "http://m.safekorea.go.kr/idsiSFK/neo/ext/json/disasterDataList/disasterDataList.json";
     request.get({uri: uri, gzip:true,'headers':{'Accept-Encoding' : 'gzip'}}, (err,res,body) => {
-		let returnjson = JSON.parse(body);
-        //console.log(returnjson);
+	let returnjson = JSON.parse(body);
         var returnArr = []; 
         for(var i = 0; i < 10 ; i++) {
             var temp = returnjson[i]["SJ"].split(' ');
@@ -25,7 +24,7 @@ disasterKR.getDisasterMessage = (callback) => {
 };
 
 // 지진정보 가져오기
-disasterKR.getEarthquake = (getAll, callback) => { //option => a / m
+disasterKR.getEarthquake = (getAll, callback) => {
     if(getAll == true) var uri = 'https://www.weather.go.kr/plus/eqkvol/domesticlist.jsp?dpType=a'; 
     else if(getAll == false) var uri= "https://www.weather.go.kr/plus/eqkvol/domesticlist.jsp?dpType=m";
     else throw new Error('Unknown Parameter');
@@ -33,7 +32,6 @@ disasterKR.getEarthquake = (getAll, callback) => { //option => a / m
         let resultArr = [];
         const $ = cheerio.load(body);
         let colArr = $("table#excel_body tbody tr");
-        //console.log(colArr[0].children[2].children[0].data); //colArr => 라인, 1번째 children => 칸 개수
         var length1 = 0;
         if(colArr.length >= 20) {
             length1 = 20;
