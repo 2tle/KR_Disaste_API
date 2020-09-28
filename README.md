@@ -62,10 +62,10 @@ api.getEarthquake(true,(err,result) => {
   .......
 ]
 ```
-getDisasterMessage(callback) 재난문자 가져오기 
- callback으로 err과 result필요. 
- parameter 불필요
+getDisasterMessage(callback) 재난문자 가져오기   
+ callback으로 err과 result필요.  
+ parameter 불필요  
  
-getEarthquake(bool, callback) 지진정보 가져오기
- bool값이 true면 모든 지진정보 받아오고, false면 규모 2.0 이상의 지진만 받아옴.
- callback으로 err과 result필요.
+getEarthquake(bool, callback) 지진정보 가져오기  
+ bool값이 true면 모든 지진정보 받아오고, false면 규모 2.0 이상의 지진만 받아옴.  
+ callback으로 err과 result필요.  
